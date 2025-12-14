@@ -186,7 +186,7 @@ redis-cli
    npm install
    ```
 
-6. Kemudian, buat file baru bernama .env di dalam folder Frontend-LearnCheck dan isi file tersebut dengan konfigurasi sebagai berikut
+6. Disini, kita tidak perlu membuat file `.env` lagi karena filenya sudah tersedia pada repository
 
    ```powershell
    VITE_QUIZ_BASE=https://learncheck-a25cs153.netlify.app
