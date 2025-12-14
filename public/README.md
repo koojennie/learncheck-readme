@@ -206,12 +206,12 @@ redis-cli
    npm install
    ```
 
-9. Kemudian, buat file baru bernama .env di dalam folder Backend-LearnCheck sama seperti tadi dan isi file tersebut dengan konfigurasi sebagai berikut
+9. Kemudian, pada folder backend kami sudah menyediakan file bernama `.env.example`. Silahkan rename file tersebut menjadi `.env` dan isi bagian GOOGLE_API_KEY dengan Gemini API key milik Anda
 
    ```powershell
    PORT=8002
    LLM_PROVIDER=gemini
-   GOOGLE_API_KEY=<isi dengan Gemini API key yang dimiliki> # hilangkan tanda <...>
+   GOOGLE_API_KEY= # silahkan isi disini
    GEMINI_MODEL=gemini-2.5-flash
    QUIZ_TTL_SEC=3600
    TUTORIALS_BASE=https://learncheck-dicoding-mock-666748076441.europe-west1.run.app/
