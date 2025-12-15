@@ -18,7 +18,7 @@ Penelitian oleh Ogange et al. (2018) menunjukkan bahwa penerapan formative asses
 
 ## 🤖 Inovasi
 
-* Menghasilkan 2 soal tambahan pada sisi Back-End untuk menentukan tingkat kesulitan berdasarkan performa siswa.
+* Menghasilkan 2 soal tambahan pada sisi Back-End untuk menentukan tingkat kesulitan berdasarkan performa siswa
 * Penggunaan Redis untuk mengurangi frekuensi permintaan ke Gemini API agar menghindari rate limit.
 * Mengoptimalkan prompt agar kualitas feedback tidak terlalu kaku dan terasa menyenangkan
 
@@ -27,7 +27,7 @@ Penelitian oleh Ogange et al. (2018) menunjukkan bahwa penerapan formative asses
 Repositori dibagi menjadi dua bagian utama sebagai berikut.
 
 1. Front-End berfungsi untuk menampilkan soal formative assessment, opsi jawaban, hint/feedback, fitur restart kuis, dan menyimpan progress siswa melalui *localStorage* berdasarkan `user_id`. Front-End juga menyediakan tampilan adaptif sesuai preferensi siswa, seperti tema, jenis font, ukuran font, dan ukuran layout kuis.
-2. Back-End berfungsi untuk mengambil `tutorial_id` dan `user_id`, kemudian memanggil Dicoding Mock API untuk mengambil materi submodul. Data materi kemudian diproses dan dikirimkan ke Gemini LLM untuk menghasilkan soal, jawaban, hint, dan feedback. Backend juga mengatur level kesulitan soal, caching request LLM menggunakan Redis, dan endpoint REST API untuk frontend
+2. Back-End berfungsi untuk mengambil `tutorial_id` dan `user_id`, kemudian memanggil Dicoding Mock API untuk mengambil materi submodul. Data materi kemudian diproses dan dikirimkan ke Gemini LLM untuk menghasilkan soal, jawaban, hint, dan feedback. Backend juga mengatur level kesulitan soal, caching request LLM menggunakan Redis, dan endpoint REST API untuk frontend.
 
 ### **Rincian File Repository**
 
@@ -60,7 +60,7 @@ Backend-LearnCheck
 
 * 📂 `providers/`: untuk menyimpan mekanisme implementasi untuk integrasi dengan Gemini API.
 
-* 📂 `schemas/`: berisi skema validasi data yang akan memastikan struktur soal dan jawaban hasil AI sesuai dengan format yang diharapkan
+* 📂 `schemas/`: berisi skema validasi data yang akan memastikan struktur soal dan jawaban hasil AI sesuai dengan format yang diharapkan.
 
 * 📂 `utils/`: merupakan folder yang berisi file pendukung, seperti cache.js untuk mengelola Redis, fetchTutorials.js untuk mengambil materi submodul dari Mock Dicoding API, text.js untuk pemrosesan materi dalam bentuk teks sebelum dikirim ke Gemini API, dan validate.js untuk memvalidasi input output sistem.
 
@@ -121,7 +121,7 @@ Frontend-LearnCheck
 
 ## ☁️ Mengambil API Key Gemini
 
-Untuk menghasilkan soal otomatis kita memerlukan API Key dari Gemini. Berikut merupakan cara untuk mendapatkan API key Gemini
+Untuk menghasilkan soal otomatis Anda memerlukan API Key dari Gemini. Berikut merupakan cara untuk mendapatkan API key Gemini
 
 1. Buka link [API key Gemini](https://aistudio.google.com/api-keys)
 2. Klik “Create a new project”
@@ -136,7 +136,7 @@ Untuk menghasilkan soal otomatis kita memerlukan API Key dari Gemini. Berikut me
 
 ## 🚨 Instalasi Redis
 
-Sebelum melakukan clone pada proyek LearnCheck! kita harus mengunduh dan memasang Redis pada komputer kita. Syarat instalasi Redis adalah harus memiliki WSL pada komputer.
+Sebelum melakukan clone pada proyek LearnCheck! Anda harus mengunduh dan memasang Redis pada komputer Anda. Syarat instalasi Redis adalah harus memiliki WSL pada komputer.
 
 **Instalasi WSL**
 
@@ -170,7 +170,7 @@ redis-cli
 
 1. Buka link repository [LearnCheck! All](https://github.com/LearnCheck-A25CS153/LearnCheck-All) lalu clone repository dengan cara mengunduh file .zip atau clone menggunakan Git Desktop (Bash / GUI).
 
-2. Setelah proses clone selesai, buka folder yang berisi repository tersebut pada Visual Studio Code. Disini dapat terlihat bahwa terdapat dua folder, yaitu frontend dan backend
+2. Setelah proses clone selesai, buka folder yang berisi repository tersebut pada Visual Studio Code. Disini dapat terlihat bahwa terdapat dua folder, yaitu Frontend-LearnCheck dan Backend-LearnCheck
 
 3. Kemudian, buka terminal VS Code melalui menu bar, klik “Terminal” lalu klik “New Terminal”
 
@@ -186,7 +186,7 @@ redis-cli
    npm install
    ```
 
-6. Disini, kita tidak perlu membuat file `.env` lagi karena filenya sudah tersedia pada repository
+6. Disini, Anda tidak perlu membuat file `.env` lagi karena filenya sudah tersedia pada direktori frontend
 
    ```powershell
    VITE_QUIZ_BASE=https://learncheck-a25cs153.netlify.app
@@ -223,6 +223,28 @@ redis-cli
    REDIS_PORT=6379
    REDIS_DB=0
    ```
+   
+10. Jalankan web dengan cara mengetikkan `npm run dev` pada direktori backend
+    ```powershell
+    npm run start
+    ```
+
+11. Buka terminal baru dengan klik tombol tambah lalu masuk ke terminal frontend dan jalankan `npm run dev`
+    ```powershell
+    cd Frontend-LearnCheck
+    npm run dev
+    ```
+
+12. Kemudian pada browser ketikkan url berikut. Note: disini Anda dapat menyesuaikan tutorial_id dan user_id yang Anda inginkan
+    
+    Format:
+    ```powershell
+    http://localhost:5173/?tutorial_id=<tutorial_id>&user_id=<user_id>
+    ```
+    Contoh Penggunaan:
+    ```powershell
+    http://localhost:5173/?tutorial_id=35363&user_id=1 
+    ```
 
 ## </> Cara Embed
 
